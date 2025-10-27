@@ -4,20 +4,20 @@
 #include "../../tokenizer/Tokenizer.h"
 
 
-
-class AST {
+class AST
+{
 public:
-    size_t tok_size;
+  size_t tok_size;
 
 
-    void consume_token(Token tok[]) {
-        
-    }
+  void consume_token(Token tok[])
+  {
+  }
 
-    
 private:
-struct parsed_tokens : Token {};
-
+  struct parsed_tokens : Token
+  {
+  };
 };
 
 #endif //ARKA_AST_H

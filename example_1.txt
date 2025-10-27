@@ -1,8 +1,12 @@
-#import Console
+#import Console;
 
-var age<int> = 56;
-var name<string> = "John";
-var sex<char> = 'M';
+{
+    var age<int> = 56;
+    var<int> age = 56;
+    var name<string> = "John";
+    var sex<char> = 'M';
+}
+{
 
 /*yes my g*/
 //yes my g

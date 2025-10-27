@@ -2,59 +2,66 @@
 #define ARKA_PARSER_H
 
 #include "AST/AST.h"
-#include "item/item.h"
-#include "parser_types/Preprocess/Preprocess.h"
 
 #include <vector>
 #include <variant>
-
 #include <iostream>
-#include <list>
-#include <utility>
+#include <cstdint>
 
-class Action {
+
+class Declaration
+{
 public:
-    void add_in_action(Token tok);
-    void clear_action();
-    std::vector<Token> get_action_content() const;
+    void print();
+    void push(const Token& tok);
+    void clear();
+    std::vector<Token> get_declaration() const;
+
 private:
     std::vector<Token> m_Action;
 };
 
-class Scope {
+class Scope
+{
 public:
-    void nest_scope(Scope &scope);
-    void add_action_in_scope(Action &action);
-    void clear_scope();
-    std::vector<Action> get_scope_content() const;
+    void print(uint8_t& tab);
+    void push(Declaration decl);
+    void push(Scope scope);
+    void clear();
+    std::vector<std::variant<Declaration, Scope>> get_scope() const;
+
 private:
-    std::vector<Action> m_Scope;
+    std::vector<std::variant<Declaration, Scope>> m_Scope;
 };
 
-class Program {
+class Program
+{
 public:
-    void add_in_program(Scope scope);
+    void print();
+    void push(const Scope& scope);
     void clear_program();
-    std::vector<Scope> get_program_content() const;
+    std::vector<Scope> get_program() const;
+
 private:
     std::vector<Scope> m_Program;
 };
 
-class Parser {
+class Parser
+{
 public:
-
-    void parse(std::vector<Token> &tokens); //idk for now
+    void parse(std::vector<Token>& tokens); //idk for now
 
     Program identify_tokens(std::vector<Token> tok); // 1 vector<vector<Token>> = a scope, split vector<Token> with ";"
 
-    void merge_token(std::vector<Token> tok); // detect what the vector is about (var, func...)
+    void merge_token(const std::vector<Token>& tok); // detect what the vector is about (var, func...)
 
-    void consume_token(Token tok); // add token to the AST
+    void consume_token(const Token& tok); // add token to the AST
 
 
 private:
     AST tree;
 };
+
 /*
 struct Type {
 
@@ -92,8 +99,6 @@ struct Type {
     };
 };
 */
-
-
 
 
 #endif //ARKA_PARSER_H

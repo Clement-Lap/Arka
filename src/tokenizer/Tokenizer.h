@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <variant>
+#include <cstdint>
 
 
-enum TokenTypes {
+enum TokenTypes
+{
     NumberLiteral,
     Identifier,
     Equal,
@@ -26,8 +27,12 @@ enum TokenTypes {
     Endl,
     A_Slash,
     Tab,
+    Underscore,
+    Vertical_Bar,
     L_Angle_Bracket,
     R_Angle_Bracket,
+    L_Square_Bracket,
+    R_Square_Bracket,
     D_Quote,
     Quote,
     Dollar,
@@ -39,17 +44,21 @@ enum TokenTypes {
 extern std::map<TokenTypes, std::string> TokenTypeNames;
 
 
-
-struct Token {
+struct Token
+{
     TokenTypes token_type;
     std::string lexem;
 };
 
-class Tokenizer {
+void print_token(Token& tok);
+void print_tab(uint8_t tab);
+
+class Tokenizer
+{
 public:
     std::vector<Token> tokenize(std::string code);
-private:
 
+private:
 };
 
 #endif //ARKA_TOKENIZER_H

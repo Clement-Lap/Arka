@@ -2,8 +2,9 @@
 #define ARKA_PARSER_FUNCTION_H
 
 // Your class declaration here
-class Function {
-    // Class members and methods
+class Function
+{
+  // Class members and methods
 };
 
 #endif // ARKA_PARSER_FUNCTION_H

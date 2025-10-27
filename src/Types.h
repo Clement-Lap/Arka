@@ -1,3 +1,5 @@
+#pragma once
+
 #define L_PAR '('
 #define R_PAR ')'
 #define L_BRAQ '{'
@@ -23,12 +25,12 @@
 #define DECORATOR '@'
 #define SPACE ' '
 #define TAB '\t'
-#define ENDL '\n'
+#define ENDLINE '\n'
 #define EQUAL '='
 #define DOUBLE_EQUAL '=='
 #define NOT '!'
 #define SLASH '/'
-#define ANTISLASH '\\'
+#define BACKSLASH '\\'
 #define PLUS '+'
 #define MINUS '-'
 #define STAR '*'
@@ -38,3 +40,5 @@
 #define DOT '.'
 #define COMMA ','
 #define NULLTOK '\0'
+#define VBAR '|'
+#define UNDERSCORE '_'

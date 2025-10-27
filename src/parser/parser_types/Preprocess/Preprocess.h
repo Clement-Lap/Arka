@@ -3,9 +3,10 @@
 
 #include <parser/Parser.h>
 
-class Preprocess {
+class Preprocess
+{
 public:
-    /*
+  /*
 
     Preprocess(Type::Preprocess type) : m_type(type){};
     Type::Preprocess m_type;
@@ -15,7 +16,6 @@ public:
     std::string *args = new std::string[args_size];
 */
 private:
-
 };
 
 #endif // ARKA_PARSER_PREPROCESS_H
