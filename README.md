@@ -1,5 +1,5 @@
 # Arka
-A CLI tool to provide projects templates.
+A CLI tool to provide projects templates. The purpose was to create a package manager for C / C++, since most modern languages had one. That's why we are more dedicated towards C templates. 
 
 # Supported languages
 - PostCSS, Sass, Less
